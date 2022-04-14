@@ -86,6 +86,11 @@ There are many common rules for naming and maintaining **Classes** within
     - `private`
 - Finally, sort alphabetically.
 
+> **Note**: rules concerning members order may be bypassed if it makes more
+sense to order in an other way. For instance, to achieve the desired order of
+appearance in the Unity Inspector, or to group properties that are related
+together.
+
 Use [Pascal-case](#types-of-naming-conventions) for **Class Names**.
 
 - Always prefix interface names with an `I`
@@ -101,13 +106,13 @@ containing at least a summary and a description of their parameters and return
 value, if any.
 ```csharp
 /// <summary>
-/// Fire a gun
+/// Fire a gun.
 /// </summary>
 /// <param name="bulletType">Type of the bullet to fire</param>
 /// <returns>True if the gun was able to fire, false if it wasn't for any reason</returns>
 public bool Fire(BulletType bulletType)
 {
-  // Fire the gun.
+  // Fire the gun
 }
 ```
 
@@ -117,12 +122,11 @@ understand a function's intended behavior and general operation.
 
 - Comments should be placed on a separate line, above the code
 - Comment text should begin with an uppercase letter
-- Comment text should end with a period
 - Insert one space between the comment delimiter and the comment text
 
 Example:
 ```csharp
-/// This is a comment.
+// This is a comment
 ```
 
 For **Spacing**, use a single space after a comma.
