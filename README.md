@@ -23,6 +23,8 @@ reading through another contributor's code.
     - [Animations](#animations)
     - [Artificial Intelligence](#artificial-intelligence)
     - [Miscellaneous](#miscellaneous)
+- [Good practices](#good-practices)
+    - [Making merges and rebases easier](#making-git-merges-and-rebases-easier)
 - [Article References](#article-references)
 
 ## Terminology
@@ -291,6 +293,30 @@ Always use [Pascal-case](#types-of-naming-conventions) for the base asset name.
 |               |        |        |       |
 |               |        |        |       |
 |               |        |        |       |
+
+## Good practices
+
+### Making Git merges and rebases easier
+
+In order to merge a branch into develop, it must first be updated with the latest changes on develop. That operation is called rebasing. When there are conflicts (which happens most of the time), this step must be done manually. It consists of going through each commit on the branch, and applying the changes on top of the latest state of develop. Some of those changes are applied automatically, others need to be applied manually.
+Changes to scene files are never applied automatically, which means the person in charge of rebasing must apply every changes made to a scene manually. If there are a large amount of changes spread out in the whole scene hierarchy, it makes the process extremely difficult, and drastically increases the risks of forgetting stuff.
+To avoid these problems, the following rules should be followed, **when creating a new branch, if changes are to be made to a scene**:
+
+- Create an empty game object at the root of the scene hierarchy, and name it with the name of your branch
+- Every object that is **added** to the scene **must** be put in this game object
+- An **exhaustive** list of all objects **modified** outside of this game object should be included in the pull request description
+
+**Example**: Adding stuff to the `feat/mine-details` branch:
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/42178413/172204204-6e46f597-3aa0-42df-ac02-59c570aac6d1.png" alt="New game objects in the scene hierarchy"/>
+  <p><i>New game objects in the scene hierarchy</i></p>
+</div>
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/42178413/172204035-ab0f5819-3ebe-4f60-ad8e-500a0783031c.png" alt="New game objects in the scene hierarchy"/>
+  <p><i>Corresponding pull request description</i></p>
+</div>
 
 ## Article References
 
